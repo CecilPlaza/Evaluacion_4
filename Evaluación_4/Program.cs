@@ -57,7 +57,7 @@ using (EFContext bd = new EFContext())
     //cambiaran por los años de la industria en si o sea Microsfot
 
     var editarCompania = bd.CompaniaDeVideojuegos.FirstOrDefault(x => x.Id == 3);
-    editarCompania.NombreCompania = "Microsoft(Xbox)";
+    editarCompania.NombreCompania = "Xbox(Microsoft)";
     editarCompania.AnioIndustria = 48;
     bd.CompaniaDeVideojuegos.Update(editarCompania);
     bd.SaveChanges();
