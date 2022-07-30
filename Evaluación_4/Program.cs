@@ -19,22 +19,7 @@ using (EFContext bd = new EFContext())
         Console.WriteLine(CompaniaDeVideojuego.NombreCompania);
     }
 
-    // 2- Obtencion de ventas realizadas por videojuego
-    double ventasVideojuego = bd.Videojuegos.Average(x => x.CopiasVendidas);
-    Console.WriteLine(" ");
-    Console.WriteLine("Ventas aproximadas de los videojuegos de todas las empresas en millones");
-    Console.WriteLine(ventasVideojuego);
-    Console.WriteLine(" ");
-
-    // 3- Obtencion fecha de las compañias de videojuegos
-
-    DateTime min = bd.CompaniaDeVideojuegos.Min(x => x.Fundado);
-    Console.WriteLine(" ");
-    Console.Write("La compañia mas longeva es: ");
-    Console.Write(min);
-    Console.WriteLine(" ");
-
-    // 4- Insercion de una compañia de videojuegos
+    // 2- Insercion de una compañia de videojuegos
 
     CompaniaDeVideojuego nuevaCompania = new CompaniaDeVideojuego()
     {
@@ -47,6 +32,23 @@ using (EFContext bd = new EFContext())
 
     bd.CompaniaDeVideojuegos.Add(nuevaCompania);
     bd.SaveChanges();
+
+    // 3- Obtencion fecha de las compañias de videojuegos
+
+    DateTime min = bd.CompaniaDeVideojuegos.Min(x => x.Fundado);
+    Console.WriteLine(" ");
+    Console.Write("La compañia mas longeva es: ");
+    Console.Write(min);
+    Console.WriteLine(" ");
+
+    // 4- Obtencion de ventas realizadas por videojuego
+    double ventasVideojuego = bd.Videojuegos.Average(x => x.CopiasVendidas);
+    Console.WriteLine(" ");
+    Console.WriteLine("Ventas aproximadas de los videojuegos de todas las empresas en millones");
+    Console.WriteLine(ventasVideojuego);
+    Console.WriteLine(" ");
+
+    
 
     // 5- Actualizar los datos de la tercera compañia ingresada "Xbox" a "Microsoft (Xbox)" y los años
     //cambiaran por los años de la industria en si o sea Microsfot
