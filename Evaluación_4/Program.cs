@@ -29,9 +29,12 @@ using (EFContext bd = new EFContext())
         DominaMercado = true,
         AnioIndustria = 14
     };
-
     bd.CompaniaDeVideojuegos.Add(nuevaCompania);
     bd.SaveChanges();
+
+    Console.WriteLine("Se ha añadido la siguiente compañia: ");
+    Console.Write(nuevaCompania.NombreCompania);
+    Console.WriteLine(" ");
 
     // 3- Obtencion fecha de las compañias de videojuegos
 
